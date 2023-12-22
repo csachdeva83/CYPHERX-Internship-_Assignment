@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1080" height="1080" viewBox="0 0 1080 1080" xml:space="preserve">
+<desc>Created with Fabric.js 5.2.4</desc>
+<defs>
+</defs>
+<g transform="matrix(1 0 0 1 540 540)" id="61c51917-76cb-48e2-85ba-a1f7903a5862"  >
+<rect style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1; visibility: hidden;" vector-effect="non-scaling-stroke"  x="-540" y="-540" rx="0" ry="0" width="1080" height="1080" />
+</g>
+<g transform="matrix(1 0 0 1 540 540)" id="ae55a76c-4ed1-4666-ab9f-9665dd150930"  >
+</g>
+<g transform="matrix(67.5 0 0 67.5 540 540)"  >
+<path style="stroke: rgb(0,0,0); stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(245,138,66); fill-rule: nonzero; opacity: 1;"  transform=" translate(-8, -8)" d="M 2 0 C 0.8954305003384131 0 0 0.8954305003384131 0 2 L 0 14 C 0 15.104569499661586 0.8954305003384131 16 2 16 L 14 16 C 15.104569499661586 16 16 15.104569499661586 16 14 L 16 2 C 16 0.8954305003384131 15.104569499661586 0 14 0 L 2 0 z M 8 4 C 8.535 4 8.954 4.462 8.9 4.995 L 8.55 8.502 C 8.525619749716999 8.787624234913556 8.28666286849506 9.007053221622776 8 9.007053221622776 C 7.713337131504941 9.007053221622776 7.474380250283003 8.787624234913556 7.450000000000001 8.502 L 7.1 4.995 C 7.074582130263752 4.740676627298087 7.157889897855408 4.487463595401583 7.329343951226464 4.2979116141746925 C 7.500798004597522 4.108359632947801 7.744409654027919 4.000145087136591 7.999999999999999 4 z M 8.002 10 C 8.554284749830794 10 9.002 10.447715250169207 9.002 11 C 9.002 11.552284749830793 8.554284749830794 12 8.002 12 C 7.449715250169207 12 7.002000000000001 11.552284749830793 7.002000000000001 11 C 7.002000000000001 10.447715250169207 7.449715250169207 10 8.002 10 z" stroke-linecap="round" />
+</g>
+<g transform="matrix(NaN NaN NaN NaN 0 0)"  >
+<g style=""   >
+</g>
+</g>
+</svg>
