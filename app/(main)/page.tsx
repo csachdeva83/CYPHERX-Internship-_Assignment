@@ -72,7 +72,7 @@ const MainPage = async () => {
 
     return (
         <div>
-            <UserTile ticket={groupedData.groupUser['usr-1'][0]} />
+            <UserTile ticket={groupedData.groupUser['usr-4'][0]} />
         </div>
     );
 }

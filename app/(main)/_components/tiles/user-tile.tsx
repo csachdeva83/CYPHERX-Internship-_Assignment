@@ -1,14 +1,85 @@
+import Image from "next/image";
 import { ITicket } from "../../page";
 
 const UserTile = ({ ticket }: {ticket: ITicket}) => {
 
+    const statusIconLightThemeMap: {[status in string]: string} = {
+        'todo': 'todo',
+        'in progress': 'in-progress',
+        'backlog': 'backlog',
+        'done': 'done',
+        'cancelled': 'cancelled'
+    };
+
+    const statusIconDarkThemeMap: {[status in string]: string} = {
+        'todo': 'todo-dark',
+        'in progress': 'in-progress',
+        'backlog': 'backlog-dark',
+        'done': 'done',
+        'cancelled': 'cancelled'
+    };
+
+    const priorityIconLightThemeMap: {[priority in string]: string} = {
+        '4': 'urgent-priority',
+        '3': 'high-priority',
+        '2': 'medium-priority',
+        '1': 'low-priority',
+        '0': 'no-priority'
+    };
+
+    const priorityIconDarkThemeMap: {[priority in string]: string} = {
+        '4': 'urgent-priority-dark',
+        '3': 'high-priority-dark',
+        '2': 'medium-priority-dark',
+        '1': 'low-priority-dark',
+        '0': 'no-priority-dark'
+    };
+
     return (
-        <div className="w-80 h-28 bg-white px-5 py-3 rounded-md shadow-[0_0_8px_0_#0000001a]">
-            <span>{ticket.id}</span>
-            <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" className="icon" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path></svg>
-            <span>{ticket.title}</span>
-            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" className="icon" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6 4c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995A.905.905 0 0 1 8 4zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path></svg>
-            <span>{ticket.tag[0]}</span>
+        <div className="w-80 h-fit flex items-start justify-between flex-col bg-white px-5 py-2 rounded-md shadow-[0_0_8px_0_#0000001a]">
+            <span className="text-[#8D8D8D]">{ticket.id}</span>
+            <div className="flex items-center">
+                <Image
+                    src={`./${statusIconLightThemeMap[ticket.status.toLocaleLowerCase()]}.svg`}
+                    alt="status"
+                    width="25"
+                    height="25"
+                    className="dark:hidden"
+                />
+                <Image
+                    src={`./${statusIconDarkThemeMap[ticket.status.toLocaleLowerCase()]}.svg`}
+                    alt="status"
+                    width="25"
+                    height="25"
+                    className="hidden dark:block"
+                />
+                <span className="ml-1">{ticket.title}</span>
+            </div>
+            <div className="mt-1 flex items-center">
+                <Image
+                    src={`./${priorityIconLightThemeMap[ticket.priority]}.svg`}
+                    alt="priority"
+                    width="30"
+                    height="30"
+                    className="dark:hidden border-[2px] p-[1px] border-[#e6e7eb]"
+                />
+                <Image
+                    src={`./${priorityIconDarkThemeMap[ticket.priority]}.svg`}
+                    alt="priority"
+                    width="25"
+                    height="25"
+                    className="hidden dark:block border-[2px] p-[1px] border-[#e6e7eb]"
+                />
+                <div className="ml-3 w-[135px] flex items-center justify-between border-[2px] px-[2px] border-[#e6e7eb]">
+                    <Image
+                        src="./circle.svg"
+                        alt="tag"
+                        width="15"
+                        height="15"
+                    />
+                    <span className="text-[#8D8D8D] text-sm">{ticket.tag[0]}</span>
+                </div>
+            </div>
         </div>
     );
 }
