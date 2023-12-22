@@ -1,24 +1,9 @@
+import { statusIconDarkThemeMap, statusIconLightThemeMap } from "@/utils/icon-map";
 import Image from "next/image";
 import { IUserNameAvailabeTicket } from "../../page";
 import UserLogo from "../user-logo";
 
 const PriorityTile = ({ ticket }: {ticket: IUserNameAvailabeTicket}) => {
-
-    const statusIconLightThemeMap: {[status in string]: string} = {
-        'todo': 'todo',
-        'in progress': 'in-progress',
-        'backlog': 'backlog',
-        'done': 'done',
-        'cancelled': 'cancelled'
-    };
-
-    const statusIconDarkThemeMap: {[status in string]: string} = {
-        'todo': 'todo-dark',
-        'in progress': 'in-progress',
-        'backlog': 'backlog-dark',
-        'done': 'done',
-        'cancelled': 'cancelled'
-    };
 
     return (
         <div className="w-80 h-fit flex items-start justify-between flex-col bg-white px-5 py-2 rounded-md shadow-[0_0_8px_0_#0000001a]">

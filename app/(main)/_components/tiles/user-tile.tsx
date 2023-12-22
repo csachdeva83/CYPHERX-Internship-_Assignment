@@ -1,39 +1,8 @@
+import { priorityIconDarkThemeMap, priorityIconLightThemeMap, statusIconDarkThemeMap, statusIconLightThemeMap } from "@/utils/icon-map";
 import Image from "next/image";
 import { IUserNameAvailabeTicket } from "../../page";
 
 const UserTile = ({ ticket }: {ticket: IUserNameAvailabeTicket}) => {
-
-    const statusIconLightThemeMap: {[status in string]: string} = {
-        'todo': 'todo',
-        'in progress': 'in-progress',
-        'backlog': 'backlog',
-        'done': 'done',
-        'cancelled': 'cancelled'
-    };
-
-    const statusIconDarkThemeMap: {[status in string]: string} = {
-        'todo': 'todo-dark',
-        'in progress': 'in-progress',
-        'backlog': 'backlog-dark',
-        'done': 'done',
-        'cancelled': 'cancelled'
-    };
-
-    const priorityIconLightThemeMap: {[priority in string]: string} = {
-        '4': 'urgent-priority',
-        '3': 'high-priority',
-        '2': 'medium-priority',
-        '1': 'low-priority',
-        '0': 'no-priority'
-    };
-
-    const priorityIconDarkThemeMap: {[priority in string]: string} = {
-        '4': 'urgent-priority-dark',
-        '3': 'high-priority-dark',
-        '2': 'medium-priority-dark',
-        '1': 'low-priority-dark',
-        '0': 'no-priority-dark'
-    };
 
     return (
         <div className="w-80 h-fit flex items-start justify-between flex-col bg-white px-5 py-2 rounded-md shadow-[0_0_8px_0_#0000001a]">
