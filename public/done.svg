@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1080" height="1080" viewBox="0 0 1080 1080" xml:space="preserve">
+<desc>Created with Fabric.js 5.2.4</desc>
+<defs>
+</defs>
+<g transform="matrix(1 0 0 1 540 540)" id="6e91591b-226a-4c5f-a1ff-35bd76bcd32a"  >
+</g>
+<g transform="matrix(1 0 0 1 540 540)" id="8f8d2ff0-3270-45b6-afef-1e99329a4493"  >
+<rect style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1; visibility: hidden;" vector-effect="non-scaling-stroke"  x="-540" y="-540" rx="0" ry="0" width="1080" height="1080" />
+</g>
+<g transform="matrix(45 0 0 45 540 540)"  >
+<path style="stroke: rgb(0,0,0); stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(56,75,181); fill-rule: nonzero; opacity: 1;"  transform=" translate(-12, -12)" d="M 1 12 C 1 5.925 5.925 1 12 1 C 18.075 1 23 5.925 23 12 C 23 18.075 18.075 23 12 23 C 5.925000000000001 23 1 18.075 1 12 Z M 17.28 9.28 C 17.555183400313737 8.984339709336476 17.54723091946501 8.523979429093448 17.262 8.238 C 16.976020570906552 7.952769080534988 16.515660290663522 7.94481659968626 16.22 8.219999999999999 L 10.25 14.189999999999998 L 7.779999999999999 11.719999999999997 C 7.484339709336477 11.44481659968626 7.023979429093448 11.452769080534988 6.7379999999999995 11.737999999999998 C 6.45276908053499 12.023979429093446 6.444816599686262 12.484339709336474 6.72 12.779999999999998 L 9.719999999999999 15.779999999999998 C 10.012817546773956 16.072453378057514 10.487182453226042 16.072453378057514 10.78 15.779999999999998 Z" stroke-linecap="round" />
+</g>
+<g transform="matrix(0 0 0 0 0 0)"  >
+<g style=""   >
+</g>
+</g>
+<g transform="matrix(NaN NaN NaN NaN 0 0)"  >
+<g style=""   >
+</g>
+</g>
+</svg>

@@ -7,7 +7,7 @@ const MainLayout = ({children}: {children: ReactNode}) => {
             <div className="h-[var(--navbar-height)]">
                 <Navbar/>
             </div>
-            <main className="h-[calc(100vh-var(--navbar-height))] bg-cyan-200">
+            <main className="h-[calc(100vh-var(--navbar-height))] bg-[#F4F5F8]">
                 {children}
             </main>
         </div>
