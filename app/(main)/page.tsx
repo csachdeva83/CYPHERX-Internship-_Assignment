@@ -1,3 +1,4 @@
+import PriorityTile from "./_components/tiles/priority-tile";
 import StatusTile from "./_components/tiles/status-tile";
 import UserTile from "./_components/tiles/user-tile";
 
@@ -105,6 +106,7 @@ const MainPage = async () => {
         <div>
             <UserTile ticket={groupedData.groupUser?.['usr-4']?.[0]} />
             <StatusTile ticket={groupedData.groupStatus?.['todo']?.[2]} />
+            <PriorityTile ticket={groupedData.groupPriority?.['3']?.[1]} />
         </div>
     );
 }
