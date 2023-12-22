@@ -1,23 +1,8 @@
 import Image from "next/image";
 import { IUserNameAvailabeTicket } from "../../page";
+import UserLogo from "../user-logo";
 
-const UserTile = ({ ticket }: {ticket: IUserNameAvailabeTicket}) => {
-
-    const statusIconLightThemeMap: {[status in string]: string} = {
-        'todo': 'todo',
-        'in progress': 'in-progress',
-        'backlog': 'backlog',
-        'done': 'done',
-        'cancelled': 'cancelled'
-    };
-
-    const statusIconDarkThemeMap: {[status in string]: string} = {
-        'todo': 'todo-dark',
-        'in progress': 'in-progress',
-        'backlog': 'backlog-dark',
-        'done': 'done',
-        'cancelled': 'cancelled'
-    };
+const StatusTile = ({ ticket }: {ticket: IUserNameAvailabeTicket}) => {
 
     const priorityIconLightThemeMap: {[priority in string]: string} = {
         '4': 'urgent-priority',
@@ -37,24 +22,11 @@ const UserTile = ({ ticket }: {ticket: IUserNameAvailabeTicket}) => {
 
     return (
         <div className="w-80 h-fit flex items-start justify-between flex-col bg-white px-5 py-2 rounded-md shadow-[0_0_8px_0_#0000001a]">
-            <span className="text-[#8D8D8D]">{ticket.id}</span>
-            <div className="flex items-center">
-                <Image
-                    src={`./${statusIconLightThemeMap[ticket.status.toLocaleLowerCase()]}.svg`}
-                    alt="status"
-                    width="25"
-                    height="25"
-                    className="dark:hidden"
-                />
-                <Image
-                    src={`./${statusIconDarkThemeMap[ticket.status.toLocaleLowerCase()]}.svg`}
-                    alt="status"
-                    width="25"
-                    height="25"
-                    className="hidden dark:block"
-                />
-                <span className="ml-1">{ticket.title}</span>
+            <div className="w-full flex items-center justify-between">
+                <span className="text-[#8D8D8D]">{ticket.id}</span>
+                <UserLogo userName={ticket.name} available={ticket.available} />
             </div>
+            <span className="ml-1">{ticket.title}</span>
             <div className="mt-1 flex items-center">
                 <Image
                     src={`./${priorityIconLightThemeMap[ticket.priority]}.svg`}
@@ -84,4 +56,4 @@ const UserTile = ({ ticket }: {ticket: IUserNameAvailabeTicket}) => {
     );
 }
  
-export default UserTile;
+export default StatusTile;

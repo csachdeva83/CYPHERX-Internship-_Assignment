@@ -1,19 +1,27 @@
+import StatusTile from "./_components/tiles/status-tile";
 import UserTile from "./_components/tiles/user-tile";
 
-interface IUser {
+interface IUser extends IUserNameAvailabile{
     id: string;
+}
+
+interface IUserNameAvailabile {
     name: string;
     available: boolean;
 }
 
-export interface ITicket {
+export interface IUserNameAvailabeTicket extends ITicket {
+    name: string;
+    available: boolean; 
+}
+
+interface ITicket {
     id: string;
     title: string;
     tag: string[];
     userId: string;
     status: string;
     priority: number;
-
 }
 
 type TSupport = {
@@ -23,13 +31,13 @@ type TSupport = {
 
 type TGroupSupport = {
     groupUser: {
-        [userId in string] : ITicket[]; 
+        [userId in string] : IUserNameAvailabeTicket[]; 
     },
     groupStatus: {
-        [status in string] : ITicket[];
+        [status in string] : IUserNameAvailabeTicket[];
     };
     groupPriority: {
-        [priority in string] : ITicket[];
+        [priority in string] : IUserNameAvailabeTicket[];
     };
 }
 
@@ -42,20 +50,43 @@ export const getData = async (): Promise<TGroupSupport> => {
 
     const data: TSupport = await res.json();
 
-    const groupedData = data.tickets.reduce((grouped: any, ticket: ITicket) => {
-        const {userId, status, priority} = ticket;
+    const groupNameAvailability = data.users.reduce((grouped: {
+        [userId in string]: IUserNameAvailabile
+    }, user: IUser) => {
+        let {id, name, available} = user;
+
+        id = id.toLowerCase();
+        if(!grouped[id]){
+            grouped[id] = {
+                name,
+                available
+            };
+        }
+
+        return grouped;
+    }, {});
+
+    const groupedData = data.tickets.reduce((grouped: TGroupSupport, ticket: ITicket) => {
+        let {userId, status, priority} = ticket;
+
+        const newTicket: IUserNameAvailabeTicket = {
+            ...ticket,
+            ...groupNameAvailability[ticket.userId]
+        };
 
         // Group by userId
+        userId = userId.toLowerCase();
         if(!grouped.groupUser[userId]) grouped.groupUser[userId] = [];
-        grouped.groupUser[userId].push(ticket);
+        grouped.groupUser[userId].push(newTicket);
 
         // Group by status
+        status = status.toLowerCase();
         if(!grouped.groupStatus[status]) grouped.groupStatus[status] = [];
-        grouped.groupStatus[status].push(ticket);
+        grouped.groupStatus[status].push(newTicket);
 
         // Group by priority
         if(!grouped.groupPriority[priority]) grouped.groupPriority[priority] = [];
-        grouped.groupPriority[priority].push(ticket);
+        grouped.groupPriority[priority].push(newTicket);
 
         return grouped;
     },
@@ -72,7 +103,8 @@ const MainPage = async () => {
 
     return (
         <div>
-            <UserTile ticket={groupedData.groupUser['usr-4'][0]} />
+            <UserTile ticket={groupedData.groupUser?.['usr-4']?.[0]} />
+            <StatusTile ticket={groupedData.groupStatus?.['todo']?.[2]} />
         </div>
     );
 }
