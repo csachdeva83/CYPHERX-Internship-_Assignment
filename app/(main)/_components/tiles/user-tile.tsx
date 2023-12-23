@@ -5,7 +5,7 @@ import { IUserNameAvailabeTicket } from "../../page";
 const UserTile = ({ ticket }: {ticket: IUserNameAvailabeTicket}) => {
 
     return (
-        <div className="w-80 h-fit flex items-start justify-between flex-col bg-white px-5 py-2 rounded-md shadow-[0_0_8px_0_#0000001a]">
+        <div className="w-80 h-fit flex items-start justify-between flex-col bg-white px-5 py-2 rounded-md shadow-[0_0_8px_0_#0000001a] mb-4">
             <span className="text-[#8D8D8D]">{ticket.id}</span>
             <div className="flex items-center">
                 <Image

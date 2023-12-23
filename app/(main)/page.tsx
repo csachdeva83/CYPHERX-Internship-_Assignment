@@ -1,5 +1,3 @@
-import PriorityTile from "./_components/tiles/priority-tile";
-import StatusTile from "./_components/tiles/status-tile";
 import UserTile from "./_components/tiles/user-tile";
 
 interface IUser extends IUserNameAvailabile{
@@ -103,10 +101,19 @@ const MainPage = async () => {
     const groupedData = await getData();
 
     return (
-        <div>
-            <UserTile ticket={groupedData.groupUser?.['usr-4']?.[0]} />
-            <StatusTile ticket={groupedData.groupStatus?.['todo']?.[2]} />
-            <PriorityTile ticket={groupedData.groupPriority?.['3']?.[1]} />
+        <div className="w-full h-full border-4 border-pink-700 flex items-start justify-start flex-wrap">
+            {
+                Object.keys(groupedData.groupUser).map((userId: string) => ( // replace userId with key to make it common for all three
+                    <div key={userId} className=" w-fit h-fit mx-3">
+                        <h3>{userId}</h3>
+                        {
+                            groupedData.groupUser[userId].map((ticket: IUserNameAvailabeTicket) => (
+                                <UserTile key={ticket.id} ticket={ticket} />
+                            ))
+                        }
+                    </div>
+                )) 
+            }
         </div>
     );
 }
