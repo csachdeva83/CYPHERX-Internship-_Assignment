@@ -4,7 +4,7 @@ This repository contains a Kanban board application built using React and Next.j
 
 ## Live Demo
 
-A live demo of the application can be accessed [here](#).
+A live demo of the application can be accessed [here](https://cherish-cypherx-internship-assignment.vercel.app).
 
 ## Features
 
