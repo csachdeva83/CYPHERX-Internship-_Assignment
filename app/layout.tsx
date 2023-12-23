@@ -1,3 +1,4 @@
+import { ThemeProvider } from '@/components/providers/theme-provider'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
@@ -16,7 +17,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>{children}</body>
+        <body className={inter.className}>
+            <ThemeProvider
+                attribute='class'
+                defaultTheme='system'
+                enableSystem
+                storageKey='theme'
+            >
+                {children}
+            </ThemeProvider>
+        </body>
     </html>
   )
 }
