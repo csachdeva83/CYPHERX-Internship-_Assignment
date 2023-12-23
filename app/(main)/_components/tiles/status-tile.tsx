@@ -6,7 +6,7 @@ import UserLogo from "../user-logo";
 const StatusTile = ({ ticket }: {ticket: IUserNameAvailabeTicket}) => {
 
     return (
-        <div className="w-80 h-fit flex items-start justify-between flex-col bg-white px-5 py-2 rounded-md shadow-[0_0_8px_0_#0000001a]">
+        <div className="w-80 h-fit flex items-start justify-between flex-col bg-white px-5 py-2 rounded-md shadow-[0_0_8px_0_#0000001a] mb-4">
             <div className="w-full flex items-center justify-between">
                 <span className="text-[#8D8D8D]">{ticket.id}</span>
                 <UserLogo userName={ticket.name} available={ticket.available} />

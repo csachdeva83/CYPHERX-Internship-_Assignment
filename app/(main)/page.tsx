@@ -1,4 +1,8 @@
+import { priorityIconDarkThemeMap, priorityIconLightThemeMap, statusIconDarkThemeMap, statusIconLightThemeMap } from "@/utils/icon-map";
+import { priorityNumberMap } from "@/utils/priority-map";
 import Image from "next/image";
+import PriorityTile from "./_components/tiles/priority-tile";
+import StatusTile from "./_components/tiles/status-tile";
 import UserTile from "./_components/tiles/user-tile";
 import UserLogo from "./_components/user-logo";
 
@@ -105,7 +109,7 @@ const MainPage = async () => {
     return (
         <div className="w-full h-full flex items-start justify-start flex-wrap">
             {
-                Object.keys(groupedData.groupUser).map((key: string) => (
+                false && Object.keys(groupedData.groupUser).map((key: string) => (
                     <div key={key} className=" w-fit h-fit mr-4">
                         <div className="flex items-center justify-between mb-7">
                             <div className="flex items-center justify-between max-w-max">
@@ -133,6 +137,100 @@ const MainPage = async () => {
                         {
                             groupedData.groupUser[key].map((ticket: IUserNameAvailabeTicket) => (
                                 <UserTile key={ticket.id} ticket={ticket} />
+                            ))
+                        }
+                    </div>
+                )) 
+            }
+            {
+                false && Object.keys(groupedData.groupStatus).map((key: string) => (
+                    <div key={key} className=" w-fit h-fit mr-4">
+                        <div className="flex items-center justify-between mb-7">
+                            <div className="flex items-center justify-between max-w-max">
+                                <Image
+                                    src={`./${statusIconLightThemeMap[key]}.svg`}
+                                    alt="priority"
+                                    width="30"
+                                    height="30"
+                                    className="dark:hidden p-[1px]"
+                                />
+                                <Image
+                                    src={`./${statusIconDarkThemeMap[key]}.svg`}
+                                    alt="priority"
+                                    width="25"
+                                    height="25"
+                                    className="hidden dark:block p-[1px]"
+                                />
+                                <span className="text-base font-medium mx-2 capitalize">{key}</span>
+                                <span className="text-[#8D8D8D]">{groupedData.groupStatus[key].length}</span>
+                            </div>
+                            <div className="flex items-center">
+                                <Image
+                                    src="./plus.svg"
+                                    alt="plus"
+                                    width="13"
+                                    height="13"
+                                    className="cursor-pointer mr-2"
+                                />
+                                <Image
+                                    src="./dots.svg"
+                                    alt="dots"
+                                    width="15"
+                                    height="15"
+                                    className="cursor-pointer"
+                                />
+                            </div>
+                        </div>
+                        {
+                            groupedData.groupStatus[key].map((ticket: IUserNameAvailabeTicket) => (
+                                <StatusTile key={ticket.id} ticket={ticket} />
+                            ))
+                        }
+                    </div>
+                )) 
+            }
+            {
+                true && Object.keys(groupedData.groupPriority).map((key: string) => (
+                    <div key={key} className=" w-fit h-fit mr-4">
+                        <div className="flex items-center justify-between mb-7">
+                            <div className="flex items-center justify-between max-w-max">
+                                <Image
+                                    src={`./${priorityIconLightThemeMap[key]}.svg`}
+                                    alt="priority"
+                                    width="30"
+                                    height="30"
+                                    className="dark:hidden p-[1px]"
+                                />
+                                <Image
+                                    src={`./${priorityIconDarkThemeMap[key]}.svg`}
+                                    alt="priority"
+                                    width="25"
+                                    height="25"
+                                    className="hidden dark:block p-[1px]"
+                                />
+                                <span className="text-base font-medium mx-2 capitalize">{priorityNumberMap[key]}</span>
+                                <span className="text-[#8D8D8D]">{groupedData.groupPriority[key].length}</span>
+                            </div>
+                            <div className="flex items-center">
+                                <Image
+                                    src="./plus.svg"
+                                    alt="plus"
+                                    width="13"
+                                    height="13"
+                                    className="cursor-pointer mr-2"
+                                />
+                                <Image
+                                    src="./dots.svg"
+                                    alt="dots"
+                                    width="15"
+                                    height="15"
+                                    className="cursor-pointer"
+                                />
+                            </div>
+                        </div>
+                        {
+                            groupedData.groupPriority[key].map((ticket: IUserNameAvailabeTicket) => (
+                                <PriorityTile key={ticket.id} ticket={ticket} />
                             ))
                         }
                     </div>
