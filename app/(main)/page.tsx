@@ -75,7 +75,7 @@ const MainPage = () => {
     }, [])
 
     return (
-        <div className="w-full h-full flex items-start justify-start flex-wrap">
+        <div className="w-full h-full flex items-start justify-start flex-wrap gap-y-10">
             {
                 groupBy === 'priority' && (
                     <TileWrapper groupedData={groupedData.groupPriority} tile={PriorityTile} />
