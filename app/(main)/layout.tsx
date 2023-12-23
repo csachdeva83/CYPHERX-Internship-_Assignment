@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import Navbar from "./_components/navabar";
 
 const MainLayout = ({children}: {children: ReactNode}) => {
+    
     return (
         <div className="h-full">
             <div className="h-[var(--navbar-height)]">

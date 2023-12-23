@@ -43,3 +43,5 @@ export type TGroupSupport = {
     groupStatus: IGroupStatus;
     groupPriority: IGroupPriority;
 }
+
+export type TGroup = "user" | "status" | "priority";
