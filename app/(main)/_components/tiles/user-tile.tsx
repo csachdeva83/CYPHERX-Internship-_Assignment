@@ -5,7 +5,7 @@ import Image from "next/image";
 const UserTile = ({ ticket }: {ticket: IUserNameAvailabeTicket}) => {
 
     return (
-        <div className="w-80 h-fit flex items-start justify-between flex-col bg-white dark:bg-[#161B22] dark:border-2 dark:border-[#4a4a4a] px-5 py-2 rounded-md shadow-[0_0_8px_0_#0000001a] mb-4">
+        <div className="md:w-[calc(100vw-55vw)] lg:w-[calc(100vw-70vw)] xl:w-[calc(100vw-78vw)] 2xl:w-[calc(100vw-82vw)] w-[calc(100vw-10vw)] h-fit flex items-start justify-between flex-col bg-white dark:bg-[#161B22] dark:border-2 dark:border-[#4a4a4a] px-5 py-2 rounded-md shadow-[0_0_8px_0_#0000001a] mb-4">
             <span className="text-[#8D8D8D]">{ticket.id}</span>
             <div className="flex items-center">
                 <Image

@@ -3,7 +3,7 @@
 import { TGroup, TOrder } from "@/utils/types";
 import { useTheme } from "next-themes";
 import Image from "next/image";
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { useLocalStorage } from 'usehooks-ts';
 
 const Navbar = () => {
@@ -12,6 +12,21 @@ const Navbar = () => {
     const [groupBy, setGroupBy] = useLocalStorage<TGroup>("groupBy", "user");
     const [orderBy, setOrderBy] = useLocalStorage<TOrder>("orderBy", "title");
     const { theme, setTheme } = useTheme();
+
+    let dropdownref = useRef<HTMLDivElement>(null);
+    let displayref = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        let handler = (event: MouseEvent) => {
+            if(dropdownref.current && displayref.current && !dropdownref.current.contains(event.target as Node) && !displayref?.current.contains(event.target as Node)){
+                setDisplay(!display);
+            }
+        }
+
+        document.addEventListener("mousedown", handler);
+
+        return () => document.removeEventListener("mousedown", handler);
+    })
 
     useEffect(() => {
         const set = () => {
@@ -30,6 +45,7 @@ const Navbar = () => {
     return (
         <nav className="h-full flex items-center justify-between px-7 dark:bg-[#161B22]">
             <div 
+                ref={displayref}
                 className="w-32 flex items-center justify-between px-1 cursor-pointer border-2 border-[#e6e7eb] rounded-md shadow-[0_0_8px_0_#0000001a] dark:shadow-[0_0_8px_0_#ffffff22] dark:border-[#4a4a4a] relative"
                 onClick={() => setDisplay(!display)}
             >
@@ -51,7 +67,7 @@ const Navbar = () => {
             </div>
             {
                 display && (
-                <div className="z-[99999] w-72 h-fit border-2 border-[#e6e7eb] bg-white dark:bg-[#161B22] rounded-md shadow-[0_0_8px_0_#0000001a] dark:shadow-[0_0_8px_0_#ffffff22] dark:border-[#4a4a4a] flex flex-col absolute top-16 p-6">
+                <div ref={dropdownref} className="z-[99999] w-72 h-fit border-2 border-[#e6e7eb] bg-white dark:bg-[#161B22] rounded-md shadow-[0_0_8px_0_#0000001a] dark:shadow-[0_0_8px_0_#ffffff22] dark:border-[#4a4a4a] flex flex-col absolute top-16 p-6">
                     <div className=" flex items-center justify-between">
                         <span className="text-[#8D8D8D]">Grouping</span>
                         <select 
