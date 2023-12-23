@@ -53,7 +53,7 @@ const TileWrapper = ({groupedData, tile: Tile}: ITileWrapperProps) => {
                                     groupBy === 'user' && (
                                         <>
                                             <UserLogo userName={groupedData[key][0].name} available={groupedData[key][0].available} />
-                                            <span className="text-base font-medium mx-2">{groupedData[key][0].name}</span>
+                                            <span className="text-base font-medium mx-2 dark:text-white">{groupedData[key][0].name}</span>
                                             <span className="text-[#8D8D8D]">{groupedData[key].length}</span>
                                         </>
                                     )
@@ -75,7 +75,7 @@ const TileWrapper = ({groupedData, tile: Tile}: ITileWrapperProps) => {
                                                 height="25"
                                                 className="hidden dark:block p-[1px]"
                                             />
-                                            <span className="text-base font-medium mx-2 capitalize">{key}</span>
+                                            <span className="text-base font-medium mx-2 capitalize dark:text-white">{key}</span>
                                             <span className="text-[#8D8D8D]">{groupedData[key].length}</span>
                                         </>
                                     )
@@ -97,7 +97,7 @@ const TileWrapper = ({groupedData, tile: Tile}: ITileWrapperProps) => {
                                                 height="25"
                                                 className="hidden dark:block p-[1px]"
                                             />
-                                            <span className="text-base font-medium mx-2 capitalize">{priorityNumberMap[key]}</span>
+                                            <span className="text-base font-medium mx-2 capitalize dark:text-white">{priorityNumberMap[key]}</span>
                                             <span className="text-[#8D8D8D]">{groupedData[key].length}</span>
                                         </>
                                     )

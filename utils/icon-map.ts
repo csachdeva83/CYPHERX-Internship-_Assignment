@@ -23,7 +23,7 @@ export const priorityIconLightThemeMap: {[priority in string]: string} = {
 };
 
 export const priorityIconDarkThemeMap: {[priority in string]: string} = {
-    '4': 'urgent-priority-dark',
+    '4': 'urgent-priority',
     '3': 'high-priority-dark',
     '2': 'medium-priority-dark',
     '1': 'low-priority-dark',

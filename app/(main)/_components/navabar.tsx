@@ -21,9 +21,9 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className="h-full flex items-center justify-between px-7">
+        <nav className="h-full flex items-center justify-between px-7 dark:bg-[#161B22]">
             <div 
-                className="w-32 flex items-center justify-between px-1 cursor-pointer border-2 border-[#e6e7eb] rounded-md shadow-[0_0_8px_0_#0000001a] relative"
+                className="w-32 flex items-center justify-between px-1 cursor-pointer border-2 border-[#e6e7eb] rounded-md shadow-[0_0_8px_0_#0000001a] dark:shadow-[0_0_8px_0_#ffffff22] dark:border-[#4a4a4a] relative"
                 onClick={() => setDisplay(!display)}
             >
                 <Image
@@ -33,7 +33,7 @@ const Navbar = () => {
                     alt="bar"
                     className="-rotate-90 w-4 h-4 text-[#8D8D8D]"
                 />
-                <span className="text-base">Display</span>
+                <span className="text-base dark:text-white">Display</span>
                 <Image
                     src="./dropdown.svg"
                     width="80"
@@ -44,11 +44,11 @@ const Navbar = () => {
             </div>
             {
                 display && (
-                <div className="z-[99999] w-72 h-fit border-2 border-[#e6e7eb] bg-white rounded-md shadow-[0_0_8px_0_#0000001a] flex flex-col absolute top-16 p-6">
+                <div className="z-[99999] w-72 h-fit border-2 border-[#e6e7eb] bg-white dark:bg-[#161B22] rounded-md shadow-[0_0_8px_0_#0000001a] dark:shadow-[0_0_8px_0_#ffffff22] dark:border-[#4a4a4a] flex flex-col absolute top-16 p-6">
                     <div className=" flex items-center justify-between">
                         <span className="text-[#8D8D8D]">Grouping</span>
                         <select 
-                            className="outline-none pl-2 rounded-md w-28 h-7 border-2 border-[#e6e7eb] bg-white"
+                            className="outline-none pl-2 rounded-md w-28 h-7 border-2 border-[#e6e7eb] bg-white dark:bg-[#161B22] dark:text-white dark:border-[#4a4a4a]"
                             onChange={(event: ChangeEvent<HTMLSelectElement>) => setGroupBy(event.target.value as TGroup)}
                             value={groupBy}
                         >
@@ -60,7 +60,7 @@ const Navbar = () => {
                     <div className=" flex items-center justify-between mt-3">
                         <span className="text-[#8D8D8D]">Ordering</span>
                         <select 
-                            className=" outline-none pl-2 rounded-md w-28 h-7 border-2 border-[#e6e7eb] bg-white"
+                            className=" outline-none pl-2 rounded-md w-28 h-7 border-2 border-[#e6e7eb] bg-white dark:bg-[#161B22] dark:text-white dark:border-[#4a4a4a]"
                             onChange={(event: ChangeEvent<HTMLSelectElement>) => setOrderBy(event.target.value as TOrder)}
                             value={orderBy}
                         >
