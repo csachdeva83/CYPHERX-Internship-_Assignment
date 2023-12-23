@@ -54,7 +54,7 @@ A live demo of the application can be accessed [here](#).
 
 ## Screenshots
 
-![Page](https://drive.google.com/file/d/1W9Aalsk5AMzWh4e1X3CBhewhdKibsoZ7/view?usp=sharing)
+![Page](screenshot/home.png)
 
 ## Hosting
 
