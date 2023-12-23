@@ -1,7 +1,8 @@
 import { priorityIconDarkThemeMap, priorityIconLightThemeMap, statusIconDarkThemeMap, statusIconLightThemeMap } from "@/utils/icon-map";
 import { priorityNumberMap } from "@/utils/priority-map";
-import { IGroupPriority, IGroupStatus, IGroupUser, IUserNameAvailabeTicket } from "@/utils/types";
+import { IGroupPriority, IGroupStatus, IGroupUser, IUserNameAvailabeTicket, TGroup, TOrder } from "@/utils/types";
 import Image from "next/image";
+import { useReadLocalStorage } from "usehooks-ts";
 import PriorityTile from "./tiles/priority-tile";
 import StatusTile from "./tiles/status-tile";
 import UserTile from "./tiles/user-tile";
@@ -10,10 +11,36 @@ import UserLogo from "./user-logo";
 interface ITileWrapperProps {
     groupedData: IGroupUser | IGroupStatus | IGroupPriority;
     tile: typeof StatusTile | typeof PriorityTile | typeof UserTile ;
-    groupBy: 'user' | 'status' | 'priority';
 }
 
-const TileWrapper = ({groupedData, tile: Tile, groupBy}: ITileWrapperProps) => {
+const TileWrapper = ({groupedData, tile: Tile}: ITileWrapperProps) => {
+
+    const groupBy = useReadLocalStorage<TGroup>("groupBy");
+    const orderBy = useReadLocalStorage<TOrder>("orderBy");
+
+    if(orderBy === 'priority'){
+        for(const key in groupedData){
+            if(groupedData.hasOwnProperty(key)){
+                groupedData[key].sort((ticketA: IUserNameAvailabeTicket,ticketB: IUserNameAvailabeTicket) => ticketB.priority - ticketA.priority);
+            }
+        }
+    }else{
+        for(const key in groupedData){
+            if(groupedData.hasOwnProperty(key)){
+                groupedData[key].sort((ticketA: IUserNameAvailabeTicket,ticketB: IUserNameAvailabeTicket) => {
+                    const titleA = ticketA.title.toLowerCase();
+                    const titleB = ticketB.title.toLowerCase();
+                    if (titleA < titleB) {
+                        return -1;
+                    }
+                    if (titleA > titleB) {
+                        return 1;
+                    }
+                    return 0;
+                });
+            }
+        }
+    }
 
     return (
         <>

@@ -1,6 +1,6 @@
 "use client"
 
-import { TGroup } from "@/utils/types";
+import { TGroup, TOrder } from "@/utils/types";
 import Image from "next/image";
 import { ChangeEvent, useEffect, useState } from "react";
 import { useLocalStorage } from 'usehooks-ts';
@@ -9,10 +9,12 @@ const Navbar = () => {
 
     const [display, setDisplay] = useState<boolean>(false);
     const [groupBy, setGroupBy] = useLocalStorage<TGroup>("groupBy", "user");
+    const [orderBy, setOrderBy] = useLocalStorage<TOrder>("orderBy", "title");
 
     useEffect(() => {
         const set = () => {
             setGroupBy('user');
+            setOrderBy('title');
         }
 
         return () => set();
@@ -57,9 +59,13 @@ const Navbar = () => {
                     </div>
                     <div className=" flex items-center justify-between mt-3">
                         <span className="text-[#8D8D8D]">Ordering</span>
-                        <select className=" outline-none pl-2 rounded-md w-28 h-7 border-2 border-[#e6e7eb] bg-white">
-                            <option>Priority</option>
-                            <option>Title</option>
+                        <select 
+                            className=" outline-none pl-2 rounded-md w-28 h-7 border-2 border-[#e6e7eb] bg-white"
+                            onChange={(event: ChangeEvent<HTMLSelectElement>) => setOrderBy(event.target.value as TOrder)}
+                            value={orderBy}
+                        >
+                            <option value="priority">Priority</option>
+                            <option value="title">Title</option>
                         </select>
                     </div>
                 </div>
