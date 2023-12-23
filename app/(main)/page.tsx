@@ -1,4 +1,6 @@
+import Image from "next/image";
 import UserTile from "./_components/tiles/user-tile";
+import UserLogo from "./_components/user-logo";
 
 interface IUser extends IUserNameAvailabile{
     id: string;
@@ -101,13 +103,35 @@ const MainPage = async () => {
     const groupedData = await getData();
 
     return (
-        <div className="w-full h-full border-4 border-pink-700 flex items-start justify-start flex-wrap">
+        <div className="w-full h-full flex items-start justify-start flex-wrap">
             {
-                Object.keys(groupedData.groupUser).map((userId: string) => ( // replace userId with key to make it common for all three
-                    <div key={userId} className=" w-fit h-fit mx-3">
-                        <h3>{userId}</h3>
+                Object.keys(groupedData.groupUser).map((key: string) => (
+                    <div key={key} className=" w-fit h-fit mr-4">
+                        <div className="flex items-center justify-between mb-7">
+                            <div className="flex items-center justify-between max-w-max">
+                                <UserLogo userName={groupedData.groupUser[key][0].name} available={groupedData.groupUser[key][0].available} />
+                                <span className="text-base font-medium mx-2">{groupedData.groupUser[key][0].name}</span>
+                                <span className="text-[#8D8D8D]">{groupedData.groupUser[key].length}</span>
+                            </div>
+                            <div className="flex items-center">
+                                <Image
+                                    src="./plus.svg"
+                                    alt="plus"
+                                    width="13"
+                                    height="13"
+                                    className="cursor-pointer mr-2"
+                                />
+                                <Image
+                                    src="./dots.svg"
+                                    alt="dots"
+                                    width="15"
+                                    height="15"
+                                    className="cursor-pointer"
+                                />
+                            </div>
+                        </div>
                         {
-                            groupedData.groupUser[userId].map((ticket: IUserNameAvailabeTicket) => (
+                            groupedData.groupUser[key].map((ticket: IUserNameAvailabeTicket) => (
                                 <UserTile key={ticket.id} ticket={ticket} />
                             ))
                         }
