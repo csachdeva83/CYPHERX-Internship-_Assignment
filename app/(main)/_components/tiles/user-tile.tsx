@@ -1,6 +1,6 @@
 import { priorityIconDarkThemeMap, priorityIconLightThemeMap, statusIconDarkThemeMap, statusIconLightThemeMap } from "@/utils/icon-map";
+import { IUserNameAvailabeTicket } from "@/utils/types";
 import Image from "next/image";
-import { IUserNameAvailabeTicket } from "../../page";
 
 const UserTile = ({ ticket }: {ticket: IUserNameAvailabeTicket}) => {
 
