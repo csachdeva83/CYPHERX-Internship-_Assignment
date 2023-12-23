@@ -78,17 +78,17 @@ const MainPage = () => {
         <div className="w-full h-full flex items-start justify-start flex-wrap">
             {
                 groupBy === 'priority' && (
-                    <TileWrapper groupedData={groupedData.groupPriority} tile={PriorityTile} groupBy={groupBy} />
+                    <TileWrapper groupedData={groupedData.groupPriority} tile={PriorityTile} />
                 )
             }
             {
                 groupBy === 'status' && (
-                    <TileWrapper groupedData={groupedData.groupStatus} tile={StatusTile} groupBy={groupBy} />
+                    <TileWrapper groupedData={groupedData.groupStatus} tile={StatusTile} />
                 )
             }
             {
                 groupBy === 'user' && (
-                    <TileWrapper groupedData={groupedData.groupUser} tile={UserTile} groupBy={groupBy} />
+                    <TileWrapper groupedData={groupedData.groupUser} tile={UserTile} />
                 )
             }
         </div>

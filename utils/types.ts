@@ -45,3 +45,5 @@ export type TGroupSupport = {
 }
 
 export type TGroup = "user" | "status" | "priority";
+
+export type TOrder = "title" | "priority";
