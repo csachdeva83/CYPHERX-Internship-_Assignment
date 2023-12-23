@@ -1,6 +1,7 @@
 "use client"
 
 import { TGroup, TOrder } from "@/utils/types";
+import { useTheme } from "next-themes";
 import Image from "next/image";
 import { ChangeEvent, useEffect, useState } from "react";
 import { useLocalStorage } from 'usehooks-ts';
@@ -10,6 +11,7 @@ const Navbar = () => {
     const [display, setDisplay] = useState<boolean>(false);
     const [groupBy, setGroupBy] = useLocalStorage<TGroup>("groupBy", "user");
     const [orderBy, setOrderBy] = useLocalStorage<TOrder>("orderBy", "title");
+    const { theme, setTheme } = useTheme();
 
     useEffect(() => {
         const set = () => {
@@ -19,6 +21,11 @@ const Navbar = () => {
 
         return () => set();
     }, []);
+
+    const toggleTheme = () => {
+        if(theme === "light") setTheme("dark");
+        else setTheme("light");
+    }
 
     return (
         <nav className="h-full flex items-center justify-between px-7 dark:bg-[#161B22]">
@@ -73,6 +80,7 @@ const Navbar = () => {
             }
             <div
                 role="button"
+                onClick={toggleTheme}
             >
                 <Image
                     src="./dark.svg"
