@@ -30,8 +30,8 @@ const Navbar = () => {
 
     useEffect(() => {
         const set = () => {
-            setGroupBy('user');
-            setOrderBy('title');
+            setGroupBy(groupBy);
+            setOrderBy(orderBy);
         }
 
         return () => set();

@@ -1,12 +1,9 @@
 "use client"
 
-import { ITicket, IUser, IUserNameAvailabeTicket, IUserNameAvailabile, TGroup, TGroupSupport, TSupport } from "@/utils/types";
+import { IGroupPriority, IGroupStatus, IGroupUser, ITicket, IUser, IUserNameAvailabeTicket, IUserNameAvailabile, TGroup, TGroupSupport, TSupport } from "@/utils/types";
 import { useEffect, useState } from "react";
 import { useReadLocalStorage } from 'usehooks-ts';
 import TileWrapper from "./_components/tile-wrapper";
-import PriorityTile from "./_components/tiles/priority-tile";
-import StatusTile from "./_components/tiles/status-tile";
-import UserTile from "./_components/tiles/user-tile";
 
 const MainPage = () => {
 
@@ -74,23 +71,14 @@ const MainPage = () => {
         return () => getData();
     }, [])
 
+    let data: IGroupUser | IGroupStatus | IGroupPriority = {};
+    if(groupBy === 'priority') data = groupedData.groupPriority;
+    else if(groupBy === 'status') data = groupedData.groupStatus;
+    else if(groupBy === 'user') data = groupedData.groupUser;
+
     return (
         <div className="w-full h-full flex items-start justify-start flex-wrap gap-y-10">
-            {
-                groupBy === 'priority' && (
-                    <TileWrapper groupedData={groupedData.groupPriority} tile={PriorityTile} />
-                )
-            }
-            {
-                groupBy === 'status' && (
-                    <TileWrapper groupedData={groupedData.groupStatus} tile={StatusTile} />
-                )
-            }
-            {
-                groupBy === 'user' && (
-                    <TileWrapper groupedData={groupedData.groupUser} tile={UserTile} />
-                )
-            }
+            <TileWrapper groupedData={data} />
         </div>
     );
 }

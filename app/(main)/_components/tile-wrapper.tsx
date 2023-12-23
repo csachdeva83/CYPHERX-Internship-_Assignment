@@ -3,17 +3,14 @@ import { priorityNumberMap } from "@/utils/priority-map";
 import { IGroupPriority, IGroupStatus, IGroupUser, IUserNameAvailabeTicket, TGroup, TOrder } from "@/utils/types";
 import Image from "next/image";
 import { useReadLocalStorage } from "usehooks-ts";
-import PriorityTile from "./tiles/priority-tile";
-import StatusTile from "./tiles/status-tile";
-import UserTile from "./tiles/user-tile";
+import Tile from "./tile";
 import UserLogo from "./user-logo";
 
 interface ITileWrapperProps {
     groupedData: IGroupUser | IGroupStatus | IGroupPriority;
-    tile: typeof StatusTile | typeof PriorityTile | typeof UserTile ;
 }
 
-const TileWrapper = ({groupedData, tile: Tile}: ITileWrapperProps) => {
+const TileWrapper = ({groupedData}: ITileWrapperProps) => {
 
     const groupBy = useReadLocalStorage<TGroup>("groupBy");
     const orderBy = useReadLocalStorage<TOrder>("orderBy");
