@@ -34,7 +34,8 @@ const Navbar = () => {
             setOrderBy(orderBy);
         }
 
-        return () => set();
+        set();
+
     }, []);
 
     const toggleTheme = () => {

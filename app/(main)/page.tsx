@@ -68,7 +68,8 @@ const MainPage = () => {
 
         };
 
-        return () => getData();
+        getData();
+
     }, [])
 
     let data: IGroupUser | IGroupStatus | IGroupPriority = {};
