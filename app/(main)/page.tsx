@@ -69,6 +69,7 @@ const MainPage = () => {
         };
 
         getData();
+
     }, [])
 
     let data: IGroupUser | IGroupStatus | IGroupPriority = {};

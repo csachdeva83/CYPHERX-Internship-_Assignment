@@ -35,6 +35,7 @@ const Navbar = () => {
         }
 
         set();
+
     }, []);
 
     const toggleTheme = () => {
